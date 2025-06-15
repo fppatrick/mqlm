@@ -1,27 +1,26 @@
-# M-Quantile Regression Function
-#
-# Description: This function fits M-quantile regression models using iterative reweighted least squares (IRLS).
-#              It supports various weighting schemes, robustness options, and quantile estimation.
-#
-# Author: Patrick Ferreira Patrocinio
-# Date: 15th June 2025
-# Version: 1
-#
-# Parameters:
-#   @x: Design matrix of predictors
-#   y: Response variable vector
-#   case.weights: Observation weights (default: equal weights)
-#   var.weights: Variance weights (default: equal weights)
-#   psi: Influence function for robustness (default: Huber)
-#   q: Quantile(s) to estimate (default: 0.5 for median)
-#   ...: Additional arguments passed to the psi function
-#
-# Returns:
-#   A list containing fitted values, residuals, quantile estimates, weights, and coefficients
-#
-# Dependencies: MASS package (for lm.wfit and lqs functions)
-#
-library(MASS)
+#' M-Quantile Regression Function
+#' Description: This function fits M-quantile regression models using iterative reweighted least squares (IRLS).
+#'              It supports various weighting schemes, robustness options, and quantile estimation.
+#'
+#' @author: Patrick Ferreira Patrocinio
+#' Parameters:
+#' @param x	Design matrix (predictors).
+#' @param y	Response variable.
+#' @param q	Quantile(s) to estimate (e.g., 0.5 for median).
+#' @param psi	Influence function (psi.huber (default) or psi.bisquare).
+#' @param scale.est	Scale estimator ("MAD", "Huber", or "proposal 2").
+#' @param case.weights	Observation weights (default: equal weights).
+#' @param var.weights	Variance weights (default: equal weights).
+#' @param maxit	Maximum iterations for IRLS (default: 20).
+#' @param acc	Convergence tolerance (default: 1e-4).
+
+
+#' Returns:
+#'   A list containing fitted values, residuals, quantile estimates, weights, and coefficients
+#'
+# Dependencies: 
+#' @import MASS (for lm.wfit and lqs functions)
+
 mqlm <- function (x, y, case.weights = rep(1, nrow(x)), var.weights =
                     rep(1, nrow(x)), ..., w = rep(1, nrow(x)), init = "ls", psi = psi.huber,
                   scale.est = c("MAD", "Huber", "proposal 2"), k2 = 1.345, method = c("M",
