@@ -1,6 +1,6 @@
 # M-Quantile Regression (`mquantile.R`)
 
-An R function for robust M-quantile regression, combining quantile regression with M-estimation to handle outliers and heteroscedasticity.
+An R function for robust M-quantile regression, combining quantile regression with M-estimation to handle outliers, heteroscedasticity and non-Gaussian conditional distribution.
 
 ---
 
