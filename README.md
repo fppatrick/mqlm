@@ -1,2 +1,2 @@
 # mqlm
-M-quantile regression estimation
+M-Quantile Regression Function
