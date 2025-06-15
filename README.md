@@ -1,4 +1,4 @@
-# M-Quantile Regression (`mqlm`)
+# M-Quantile Regression (`mquantile.R`)
 
 An R function for robust M-quantile regression, combining quantile regression with M-estimation to handle outliers and heteroscedasticity.
 
